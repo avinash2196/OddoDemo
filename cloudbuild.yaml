@@ -1,7 +1,16 @@
 steps:
-- name: gcr.io/cloud-builders/gcloud
-  entrypoint: bash
-  args:
-    - -c
-    - |
-      gcloud compute ssh "$_VM_NAME" --zone=us-central1-a --command "cd /opt/odoo18/odoo-server/custom_addons && git pull origin main && sudo systemctl restart odoo18"
+  - name: gcr.io/cloud-builders/gcloud
+    entrypoint: bash
+    args:
+      - -c
+      - |
+          set -e  # Fail fast if any command fails
+          gcloud compute ssh "$_VM_NAME" --zone=us-central1-a --command "
+            cd /opt/odoo18/odoo-server/custom_addons &&
+            git pull origin main &&
+            sudo systemctl restart odoo18
+          "
+
+# ✅ Logging option added to restrict logs to Cloud Logging only
+options:
+  logging: CLOUD_LOGGING_ONLY

@@ -8,7 +8,7 @@ steps:
             cd /opt/odoo18/odoo-server/custom_addons &&
             rm -rf * && \
             git clone https://github.com/avinash2196/OddoDemo . && \
-            /opt/odoo18/odoo-venv/bin/python3 /opt/odoo18/odoo-server/odoo-bin \
+            /opt/odoo18/odoo-server/venv/bin/python3 /opt/odoo18/odoo-server/odoo-bin \
               -c /etc/odoo18.conf -d "$_DB_NAME" -u all && \
             sudo systemctl restart odoo18
           "

@@ -1,0 +1,17 @@
+/* Simple Custom Styles */
+.o_form_view {
+    background-color: #f0f8ff;
+}
+.o_form_sheet {
+    border: 2px solid #007bff;
+    border-radius: 10px;
+    padding: 20px;
+    background: #ffffff;
+}
+.o_list_view {
+    background-color: #fafafa;
+}
+.field_name {
+    font-weight: bold;
+    color: #ff5733;
+}

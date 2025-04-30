@@ -9,7 +9,7 @@ steps:
             rm -rf ./* ./.??* && \
             git clone https://github.com/avinash2196/OddoDemo . && \
             /opt/odoo18/odoo-server/venv/bin/python3 /opt/odoo18/odoo-server/odoo-bin \
-              -c /etc/odoo18.conf -d "$_DB_NAME" -u all && \
+              -c /etc/odoo18.conf -d "$_DB_NAME"  -u all --stop-after-init && \
             sudo systemctl restart odoo18
           "
 options:

@@ -6,9 +6,10 @@ steps:
       - |
           gcloud compute ssh "$_VM_NAME" --zone=us-central1-a --command "
             cd /opt/odoo18/odoo-server/custom_addons &&
-            rm -rf my_custom_app &&
-            git clone https://github.com/<your-user>/<your-repo>.git my_custom_app &&
-            /opt/odoo18/odoo-venv/bin/python3 /opt/odoo18/odoo-server/odoo-bin -c /etc/odoo18.conf -d <your_db_name> -u my_custom_app &&
+            rm -rf * && \
+            git clone https://github.com/avinash2196/OddoDemo . && \
+            /opt/odoo18/odoo-venv/bin/python3 /opt/odoo18/odoo-server/odoo-bin \
+              -c /etc/odoo18.conf -d "$_DB_NAME" -u all && \
             sudo systemctl restart odoo18
           "
 options:

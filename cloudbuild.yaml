@@ -8,7 +8,7 @@ steps:
           gcloud compute ssh "$_VM_NAME" --zone=us-central1-a --command "
             git config --global --add safe.directory /opt/odoo18/odoo-server &&
             cd /opt/odoo18/odoo-server/custom_addons &&
-            git pull origin main &&
+            git pull &&
             sudo systemctl restart odoo18
           "
 options:

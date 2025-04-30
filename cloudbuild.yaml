@@ -4,13 +4,12 @@ steps:
     args:
       - -c
       - |
-          set -e  # Fail fast if any command fails
+          set -e
           gcloud compute ssh "$_VM_NAME" --zone=us-central1-a --command "
+            git config --global --add safe.directory /opt/odoo18/odoo-server &&
             cd /opt/odoo18/odoo-server/custom_addons &&
             git pull origin main &&
             sudo systemctl restart odoo18
           "
-
-# ✅ Logging option added to restrict logs to Cloud Logging only
 options:
   logging: CLOUD_LOGGING_ONLY
